@@ -9,8 +9,18 @@ import { SiCodeproject } from "react-icons/si";
 const cards = [
   { title: "Define", icon: <RiListIndefinite /> },
   { title: "Build", icon: <VscFileCode /> },
-  { title: "Run", icon: <SiCodeproject />},
+  { title: "Run", icon: <SiCodeproject /> },
 ];
+
+// Custom hook for a single card
+function useCardMotion(scrollYProgress, startOffset, finalOffset) {
+  const x = useTransform(scrollYProgress, [0, 0, 1], [startOffset, 0, finalOffset]);
+  const scale = useTransform(scrollYProgress, [0.3, 0.6, 1], [0.9, 1.05, 1]);
+  const transform = useTransform([x, scale], ([xVal, s]) => {
+    return `translateX(${xVal}px) translateY(-50%) scale(${s})`;
+  });
+  return { x, scale, transform };
+}
 
 export default function VideoScrollCards() {
   const sectionRef = useRef(null);
@@ -21,38 +31,35 @@ export default function VideoScrollCards() {
     offset: ["start end", "end start"],
   });
 
-  // Start offsets (fly-in from right)
+  // Start offsets
   const startOffsets = [600, 900, 1200];
+  // Final offsets
+  const finalOffsets = [-600, 0, 600];
 
-  // Final row offsets (cards spaced out neatly)
-  const finalOffsets = [-600, 0, 600]; // left, center, right
+  // ✅ Call hooks at top level, one per card
+  const motion0 = useCardMotion(scrollYProgress, startOffsets[0], finalOffsets[0]);
+  const motion1 = useCardMotion(scrollYProgress, startOffsets[1], finalOffsets[1]);
+  const motion2 = useCardMotion(scrollYProgress, startOffsets[2], finalOffsets[2]);
 
-  // Motion values for each card
-  const xMVs = cards.map((_, i) =>
-    useTransform(scrollYProgress, [0, 0, 1], [startOffsets[i], 0, finalOffsets[i]])
-  );
-
-  const scaleMVs = cards.map((_, i) =>
-    useTransform(scrollYProgress, [0.3, 0.6, 1], [0.9, 1.05, 1])
-  );
+  const cardMotions = [motion0, motion1, motion2];
 
   // Track which card is closest to center
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const unsubscribers = xMVs.map((mv, idx) =>
-      mv.on("change", () => {
-        const distances = xMVs.map((m) => Math.abs(m.get()));
+    const unsubscribers = cardMotions.map((motion) =>
+      motion.x.on("change", () => {
+        const distances = cardMotions.map((m) => Math.abs(m.x.get()));
         const min = Math.min(...distances);
         const minIndex = distances.indexOf(min);
         setActiveIndex(minIndex);
       })
     );
     return () => unsubscribers.forEach((unsub) => unsub());
-  }, [xMVs]);
+  }, [cardMotions]);
 
   return (
-    <section ref={sectionRef} className="relative ">
+    <section ref={sectionRef} className="relative">
       {/* Background video */}
       <div className="relative mx-6 lg:mx-20 mb-12">
         <video
@@ -66,21 +73,14 @@ export default function VideoScrollCards() {
       </div>
 
       {/* Sticky animation container */}
-      <div className="sticky top-0  flex items-center justify-center">
+      <div className="sticky top-0 flex items-center justify-center">
         <div className="relative w-full h-[280px] flex items-center justify-center -mt-36">
           {cards.map((card, i) => {
-            const transform = useTransform(
-              [xMVs[i], scaleMVs[i]],
-              ([x, s]) =>
-                `translateX(${x}px) translateY(-50%) scale(${s})`
-            );
-
             const zIndex = i === activeIndex ? 40 : 10 + i;
-
             return (
               <motion.div
                 key={card.title}
-                style={{ transform, zIndex }}
+                style={{ transform: cardMotions[i].transform, zIndex }}
                 className="absolute top-1/2 w-72 md:w-80 h-48 md:h-56 rounded-2xl shadow-2xl flex flex-col items-center justify-center text-white"
               >
                 <div className="bg-gradient-to-br from-red-500 to-red-500 w-full h-full rounded-2xl flex flex-col items-center justify-center">

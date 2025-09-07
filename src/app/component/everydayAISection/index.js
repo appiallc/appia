@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function EverydayAISection() {
@@ -48,9 +49,11 @@ export default function EverydayAISection() {
 
         {/* Right Image */}
         <div className="flex justify-center flex-col">
-          <img
+          <Image
             src="/girlwithphone.jpg" // replace with your actual image path
             alt="Everyday AI"
+            height={600}
+            width={600}
             className="rounded-3xl w-full h-80 object-cover"
           />
           <div className="bg-red-500 rounded-3xl p-8 md:p-12 flex mt-4 flex-col items-center md:items-start text-center md:text-left text-white">

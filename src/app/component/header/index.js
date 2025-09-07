@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,9 +14,11 @@ export default function Header() {
         
         {/* Logo */}
        <div className="flex items-center space-x-2">
-  <img 
+  <Image 
     src="/APPIA-RB.png" 
     alt="APPIA" 
+    height={80}
+    width={80}
     className="h-8 w-auto"
   />
 </div>

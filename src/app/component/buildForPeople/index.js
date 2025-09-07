@@ -38,24 +38,28 @@ export default function BuildForPeople() {
 
   // watch scroll position manually
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.dataset.index);
-            setActiveIndex(index);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Number(entry.target.dataset.index);
+          setActiveIndex(index);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
 
-    titleRefs.current.forEach((el) => el && observer.observe(el));
+  // snapshot of refs at this render
+  const elements = [...titleRefs.current];
 
-    return () => {
-      titleRefs.current.forEach((el) => el && observer.unobserve(el));
-    };
-  }, []);
+  elements.forEach((el) => el && observer.observe(el));
+
+  return () => {
+    elements.forEach((el) => el && observer.unobserve(el));
+  };
+}, []);
+
 
   return (
     <section className="w-full px-6 py-16 md:py-24 bg-white text-black">
