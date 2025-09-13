@@ -32,7 +32,7 @@ export default function VideoScrollCards() {
   });
 
   // Start offsets
-  const startOffsets = [600, 900, 1200];
+  const startOffsets = [400, 900, 1100];
   // Final offsets
   const finalOffsets = [-600, 0, 600];
 
@@ -59,7 +59,7 @@ export default function VideoScrollCards() {
   }, [cardMotions]);
 
   return (
-    <section ref={sectionRef} className="relative">
+    <section ref={sectionRef} className="relative overflow-hidden">
       {/* Background video */}
       <div className="relative mx-6 lg:mx-20 mb-12">
         <video
@@ -72,8 +72,8 @@ export default function VideoScrollCards() {
         />
       </div>
 
-      {/* Sticky animation container */}
-      <div className="sticky top-0 flex items-center justify-center">
+      {/* ✅ Desktop Animation */}
+      <div className="hidden md:flex sticky top-0 items-center justify-center">
         <div className="relative w-full h-[280px] flex items-center justify-center -mt-36">
           {cards.map((card, i) => {
             const zIndex = i === activeIndex ? 40 : 10 + i;
@@ -93,6 +93,19 @@ export default function VideoScrollCards() {
             );
           })}
         </div>
+      </div>
+
+      {/* ✅ Mobile (stacked view, no animation) */}
+      <div className="flex flex-col items-center gap-6 px-6 md:hidden">
+        {cards.map((card) => (
+          <div
+            key={card.title}
+            className="w-full max-w-sm h-48 rounded-2xl shadow-xl flex flex-col items-center justify-center text-white bg-gradient-to-br from-red-500 to-red-500"
+          >
+            <div className="text-4xl mb-2">{card.icon}</div>
+            <h3 className="text-2xl mt-4 font-extrabold">{card.title}</h3>
+          </div>
+        ))}
       </div>
     </section>
   );

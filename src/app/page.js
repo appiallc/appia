@@ -6,6 +6,9 @@ import DefineBuildRun from "./component/defineBuildRunSection";
 import TechSection from "./component/techSection";
 import BuildForPeople from "./component/buildForPeople";
 import EverydayAISection from "./component/everydayAISection";
+import Ecosystem from "./component/Ecosystem";
+import CallToAction from "./component/callToAction";
+import Footer from "./component/footer";
 
 export default function Home() {
   return (
@@ -19,6 +22,9 @@ export default function Home() {
          <TechSection />
          <BuildForPeople />
          <EverydayAISection/>
+         <Ecosystem />
+         <CallToAction />
+         <Footer />
       </main>
     </div>
   );
