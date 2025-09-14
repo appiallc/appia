@@ -11,7 +11,7 @@ export default function Footer() {
         p-6 md:p-10 flex flex-col md:flex-row items-center md:justify-between gap-6">
           {/* Left */}
           <div className="flex items-center gap-3">
-            <div className="text-green-500 text-3xl">🌀</div>
+            <div className="text-red-500 text-3xl">🌀</div>
             <h2 className="text-xl md:text-2xl font-bold">Contact us</h2>
           </div>
           {/* Right */}

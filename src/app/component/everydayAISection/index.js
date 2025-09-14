@@ -30,12 +30,12 @@ export default function EverydayAISection() {
           </div>
 
           {/* Title */}
-          <h2 className="text-3xl font-extrabold text-black mb-4">
+          <h2 className="text-3xl font-extrabold text-white mb-4">
             Everyday AI
           </h2>
 
           {/* Description */}
-          <p className="text-base md:text-lg text-black mb-6">
+          <p className="text-base md:text-lg text-white mb-6">
             Our Everyday AI approach starts by targeting a foundational AI use
             case, then scales efficiently by tackling new, adjacent use cases
             for larger AI gains in the future.
@@ -56,7 +56,7 @@ export default function EverydayAISection() {
             width={600}
             className="rounded-3xl w-full h-80 object-cover"
           />
-          <div className="bg-red-500 rounded-3xl p-8 md:p-12 flex mt-4 flex-col items-center md:items-start text-center md:text-left text-white">
+          <div className="bg-red-500 rounded-3xl p-8 md:p-12 flex lg:mt-4 mt-8 flex-col items-center md:items-start text-center md:text-left text-white">
       {/* Title */}
       <h2 className="text-2xl md:text-3xl font-extrabold mb-6">
         WHAT OUR CLIENTS ARE SAYING

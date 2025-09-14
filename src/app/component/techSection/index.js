@@ -25,7 +25,7 @@ export default function TechSection() {
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className="flex items-center justify-center md:justify-start"
+              className="flex items-center lg:justify-center md:justify-start"
             >
               <span className="border-l-2 border-red-500 pl-3 text-sm md:text-base font-medium">
                 {tech}
