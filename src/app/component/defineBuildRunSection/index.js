@@ -32,9 +32,9 @@ export default function VideoScrollCards() {
   });
 
   // Start offsets
-  const startOffsets = [400, 900, 1100];
+  const startOffsets = [400, 600, 800];
   // Final offsets
-  const finalOffsets = [-600, 0, 600];
+  const finalOffsets = [-550, 0, 550];
 
   // ✅ Call hooks at top level, one per card
   const motion0 = useCardMotion(scrollYProgress, startOffsets[0], finalOffsets[0]);

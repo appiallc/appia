@@ -4,7 +4,7 @@ import { FaXTwitter, FaLinkedin, FaYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-white relative overflow-hidden">
+    <footer className="bg-red-500 text-white relative overflow-hidden">
       {/* Contact Box */}
       <div className="max-w-6xl mx-auto px-4 pt-12">
         <div className="bg-white rounded-2xl shadow-md text-black
@@ -23,31 +23,31 @@ export default function Footer() {
       </div>
 
       {/* Middle Links + Socials */}
-      <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-6 border-b border-gray-800">
+      <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white">
         {/* Nav Links */}
         <div className="flex flex-wrap justify-center md:justify-start gap-6  text-sm md:text-base">
-          <a href="#" className="text-black hover:text-red-500">Industries</a>
-          <a href="#" className="text-black hover:text-red-500">Insights</a>
-          <a href="#" className="text-black hover:text-red-500">Newsroom</a>
-          <a href="#" className="text-black hover:text-red-500">Careers</a>
+          <a href="#" className="text-white ">Industries</a>
+          <a href="#" className="text-white ">Insights</a>
+          <a href="#" className="text-white ">Newsroom</a>
+          <a href="#" className="text-white ">Careers</a>
         </div>
 
         {/* Social Icons */}
-        <div className="flex items-center gap-4 text-black text-xl">
-          <a href="#" className="hover:text-red-500">
+        <div className="flex items-center gap-4 text-white text-xl">
+          <a href="#" className="">
             <FaXTwitter />
           </a>
-          <a href="#" className="hover:text-red-500">
+          <a href="#" className="">
             <FaLinkedin />
           </a>
-          <a href="#" className="hover:text-red-500">
+          <a href="#" className="">
             <FaYoutube />
           </a>
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-6 text-gray-400 text-xs md:text-sm">
+      <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-6 text-white text-xs md:text-sm">
         {/* Certifications */}
         <div className="flex items-center gap-4">
           <span className="font-bold text-white">ISO27001</span> CERTIFIED
