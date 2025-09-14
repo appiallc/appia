@@ -9,6 +9,7 @@ import EverydayAISection from "./component/everydayAISection";
 import Ecosystem from "./component/Ecosystem";
 import CallToAction from "./component/callToAction";
 import Footer from "./component/footer";
+import CaseStudies from "./component/caseStudies";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
          <EverydayAISection/>
          <Ecosystem />
          <CallToAction />
+         {/* <CaseStudies /> */}
          <Footer />
       </main>
     </div>
