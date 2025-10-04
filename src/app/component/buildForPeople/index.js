@@ -34,41 +34,38 @@ export default function BuildForPeople() {
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const titleRefs = useRef([]);
+  const sectionRef = useRef(null);
 
-  // watch scroll position manually for right side
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.dataset.index);
-            setActiveIndex(index);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
 
-    const elements = [...titleRefs.current];
-    elements.forEach((el) => el && observer.observe(el));
+      const sectionTop = sectionRef.current.offsetTop;
+      const sectionHeight = sectionRef.current.offsetHeight;
+      const scrollY = window.scrollY + window.innerHeight / 2;
 
-    return () => {
-      elements.forEach((el) => el && observer.unobserve(el));
+      if (scrollY >= sectionTop && scrollY <= sectionTop + sectionHeight) {
+        // Calculate progress through section
+        const progress =
+          (scrollY - sectionTop) / (sectionHeight / items.length);
+        const newIndex = Math.floor(progress);
+        if (newIndex !== activeIndex && newIndex < items.length) {
+          setActiveIndex(newIndex);
+        }
+      }
     };
-  }, []);
 
-  // framer-motion variants for left side staggered reveal
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeIndex, items.length]);
+
+  // Framer Motion animations for left side
   const container = {
     hidden: { opacity: 0, y: 30 },
     show: {
       opacity: 1,
       y: 0,
-      transition: {
-        staggerChildren: 0.2,
-        duration: 0.6,
-        ease: "easeOut",
-      },
+      transition: { staggerChildren: 0.2, duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -82,10 +79,13 @@ export default function BuildForPeople() {
   };
 
   return (
-    <section className="w-full px-6 py-16 md:py-24 bg-white text-black">
+    <section
+      ref={sectionRef}
+      id="build-for-people"
+      className="w-full px-6 py-16 md:py-24 bg-white text-black overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        
-        {/* Left column with staggered reveal */}
+        {/* Left column */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -124,45 +124,43 @@ export default function BuildForPeople() {
           </motion.button>
         </motion.div>
 
-        {/* Right column with scroll-based highlights */}
+        {/* Right column: Scroll Reveal */}
         <div className="space-y-12 relative">
           {items.map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              ref={(el) => (titleRefs.current[i] = el)}
-              data-index={i}
-              className="min-h-[10vh] flex flex-col justify-center"
+              className="min-h-[8vh] flex flex-col justify-center"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{
+                opacity: activeIndex >= i ? 1 : 0.1,
+                y: activeIndex >= i ? 0 : 60,
+              }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
-              <motion.h3
-                className="text-2xl font-semibold"
-                animate={{ color: activeIndex === i ? "#dc2626" : "#000" }}
-                transition={{ duration: 0.5 }}
+              <h3
+                className={`text-2xl font-semibold transition-colors duration-500 ${
+                  activeIndex === i ? "text-red-600" : "text-black"
+                }`}
               >
                 {item.title}
-              </motion.h3>
+              </h3>
 
-              <motion.div
-                initial={false}
-                animate={{
-                  opacity: activeIndex === i ? 1 : 0,
-                  y: activeIndex === i ? 0 : 40,
-                  height: activeIndex === i ? "auto" : 0,
-                  marginTop: activeIndex === i ? 16 : 0,
-                }}
-                transition={{
-                  duration: 1,
-                  ease: "easeInOut",
-                }}
-                className="overflow-hidden"
-              >
-                {item.highlight && (
-                  <p className="text-4xl font-extrabold text-green-600 mb-2">
-                    {item.highlight}
-                  </p>
-                )}
-                <p className="text-gray-700">{item.description}</p>
-              </motion.div>
-            </div>
+              {activeIndex >= i && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="mt-4"
+                >
+                  {item.highlight && (
+                    <p className="text-4xl font-extrabold text-green-600 mb-2">
+                      {item.highlight}
+                    </p>
+                  )}
+                  <p className="text-gray-700">{item.description}</p>
+                </motion.div>
+              )}
+            </motion.div>
           ))}
         </div>
       </div>

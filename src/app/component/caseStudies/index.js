@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const tabs = [
@@ -18,7 +19,7 @@ const content = {
       "Innovating the future of Avis car rental by leveraging biometrics to authenticate drivers and deliver a touchless, fully digital experience – booking to pick-up to drop-off – experience.",
     highlight: "20+",
     highlightText: "Minutes off wait time",
-    image: "/images/avis.png",
+    image: "/workImage/adpSlide.svg",
   },
   finance: {
     subtitle: "BankOne",
@@ -27,7 +28,7 @@ const content = {
       "Delivering modern financial solutions with AI-powered recommendations, real-time security, and next-gen mobile experiences.",
     highlight: "50%",
     highlightText: "Faster loan approvals",
-    image: "/images/bank.png",
+   image: "/workImage/clearmatchSlide.svg",
   },
   media: {
     subtitle: "MediaPro",
@@ -36,7 +37,7 @@ const content = {
       "Helping brands boost engagement by building scalable, immersive media platforms.",
     highlight: "2x",
     highlightText: "Customer engagement",
-    image: "/images/media.png",
+     image: "/workImage/nbcSlide.svg",
   },
   health: {
     subtitle: "MediTech",
@@ -45,7 +46,7 @@ const content = {
       "Leveraging AI and IoT to improve diagnosis speed, patient monitoring, and operational efficiency.",
     highlight: "30%",
     highlightText: "Improved efficiency",
-    image: "/images/health.png",
+    image: "/workImage/adpSlide.svg",
   },
   manufacturing: {
     subtitle: "SmartFactory",
@@ -54,7 +55,7 @@ const content = {
       "Driving efficiency and reducing downtime with AI-powered automation and predictive analytics.",
     highlight: "40%",
     highlightText: "Reduced downtime",
-    image: "/images/factory.png",
+     image: "/workImage/clearmatchSlide.svg",
   },
 };
 
@@ -70,23 +71,25 @@ export default function CaseStudies() {
         <div>
             <h3 className="text-xl font-bold uppercase">{"Our Work"}</h3>
         </div>
-      <div className="flex overflow-x-auto gap-4 ml-4 no-scrollbar">
-       {tabs.map((tab) => (
-  <button
-    key={tab.id}
-    onClick={() => setActive(tab.id)}
-    className={`px-5 py-2 rounded-full border transition-colors duration-300 
-      ${
-        active === tab.id
-          ? "bg-red-500 border-red-500 text-white" // selected
-          : "border-red-500 text-red-500 hover:bg-red-500 hover:text-white" // normal + hover
-      }`}
-  >
-    {tab.label}
-  </button>
-))}
+      <div className="flex overflow-x-auto whitespace-nowrap gap-4 ml-4 no-scrollbar">
+  {tabs.map((tab) => (
+    <div
+      key={tab.id}
+      onClick={() => setActive(tab.id)}
+      className={`cursor-pointer lg:px-5 px-3 lg:py-2 py-1 rounded-full border text-sm font-medium flex-shrink-0 transition-colors duration-300
+        ${
+          active === tab.id
+            ? "bg-red-500 border-red-500 text-white"
+            : "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+        }`}
+    >
+      {tab.label}
+    </div>
+  ))}
+</div>
 
-        </div>
+       
+
       </div>
 
       {/* Content */}
@@ -107,14 +110,18 @@ export default function CaseStudies() {
         {/* Right Side */}
         <div className="relative flex justify-center">
   {/* Red blob background */}
-  <div className="absolute -top-10 -left-10 w-[200px] h-[350px] bg-red-500 rounded-[30%] "></div>
+{/* <div className="absolute top-0 right-0 w-[400px] h-[600px] bg-red-500 rounded-t-full [clip-path:polygon(100%_0,100%_100%,40%_100%,0_20%,0_0)]"></div> */}
+
+
 
   {/* Foreground image */}
-  {/* <img
+  <Image
     src={current.image}
     alt={current.title}
-    className="rounded-xl shadow-lg w-full max-w-md"
-  /> */}
+    height={150}
+    width={200}
+    className="rounded-xl shadow-lg w-full object-cover h-80"
+  />
 </div>
 
       </div>

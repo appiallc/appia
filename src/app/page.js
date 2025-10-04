@@ -11,6 +11,7 @@ import CallToAction from "./component/callToAction";
 import Footer from "./component/footer";
 import CaseStudies from "./component/caseStudies";
 
+
 export default function Home() {
   return (
     <div className="font-sans min-h-screen">
@@ -25,7 +26,7 @@ export default function Home() {
          <EverydayAISection/>
          <Ecosystem />
          <CallToAction />
-         {/* <CaseStudies /> */}
+         <CaseStudies />
          <Footer />
       </main>
     </div>
