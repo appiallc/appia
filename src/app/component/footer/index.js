@@ -11,13 +11,13 @@ export default function Footer() {
         p-6 md:p-10 flex flex-col md:flex-row items-center md:justify-between gap-6">
           {/* Left */}
           <div className="flex items-center gap-3">
-            <div className="text-red-500 text-3xl">🌀</div>
+            
             <h2 className="text-xl md:text-2xl font-bold">Contact us</h2>
           </div>
           {/* Right */}
           <div className="text-center md:text-right text-sm md:text-base space-y-1">
             <p>sales@appia.in</p>
-            <p>+1-212-464-6000</p>
+            <p>+91 94274 98359</p>
           </div>
         </div>
       </div>

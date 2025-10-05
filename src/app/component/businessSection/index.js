@@ -11,7 +11,7 @@ export default function BusinessSection() {
         <div className="absolute inset-0 bg-[url('/pattern.png')] bg-cover opacity-10" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20">
+      <div className="relative  mx-auto px-6 lg:px-12 py-20">
         {/* Top Small Text */}
         <p className="text-lg uppercase tracking-widest text mb-4">
           Innovate for business

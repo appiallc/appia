@@ -69,7 +69,7 @@ export default function CaseStudies() {
       {/* Tabs */}
       <div className="flex lg:flex-row gap-1 flex-col justify-center items-center">
         <div>
-            <h3 className="text-3xl font-bold whitespace-nowrap uppercase">{"Our Work"}</h3>
+            <h3 className="text-2xl font-bold whitespace-nowrap uppercase">{"Our Work"}</h3>
         </div>
       <div className="flex  w-full overflow-x-auto whitespace-nowrap gap-4 ml-4 no-scrollbar">
   {tabs.map((tab) => (
@@ -95,15 +95,15 @@ export default function CaseStudies() {
       {/* Content */}
       <div className="grid grid-cols-1 lg:grid-cols-2  gap-10 mt-10">
         {/* Left Side */}
-        <div>
-          <h3 className="text-xl font-bold uppercase">{current.subtitle}</h3>
+        <div className="space-y-2 text-left">
+          <h3 className="text-4xl font-bold uppercase">{current.subtitle}</h3>
           <h2 className="text-3xl font-bold mt-2">{current.title}</h2>
-          <p className="text-black mt-4">{current.description}</p>
+          <p className="text-black text-md mt-4">{current.description}</p>
           <div className="mt-6">
             <span className="text-green-500 text-4xl font-bold">
               {current.highlight}
             </span>
-            <p className="text-black">{current.highlightText}</p>
+            <p className="text-black  text-md">{current.highlightText}</p>
           </div>
         </div>
 

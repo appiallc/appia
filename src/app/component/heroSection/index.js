@@ -20,8 +20,8 @@ export default function HeroSection() {
   return (
     <section className="bg-white text-red text-center py-4 md:py-24 relative overflow-hidden">
       {/* Headline */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-[50px] sm:text-[60px] md:text-[72px] font-extrabold leading-tight">
           Innovate for business <br />
           <span className="text-red-500"> Design for people</span>
         </h1>

@@ -2,7 +2,7 @@
 
 import { Mail, MapPinCheckIcon } from "lucide-react";
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
+
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -17,27 +17,30 @@ export default function ContactSection() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
- 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    emailjs
-      .send(
-        "service_wouxcve",     // from EmailJS dashboard
-        "template_c5gsanr",    // template with placeholders
-        formData,
-        "KHfvEy4KnJNAwzuPR"      // your public key
-      )
-      .then(
-        (result) => {
-          alert("Message sent successfully!");
-          setFormData({ name: "", email: "", phone: "", message: "" });
-        },
-        (error) => {
-          alert("Failed to send message. Try again.");
-        }
-      );
-  };
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert("✅ Message sent successfully!");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } else {
+      alert(`❌ Error: ${data.error}`);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("⚠️ Something went wrong. Try again.");
+  }
+};
+
+
   return (
     <section className="w-full bg-white text-white relative mx-4">
       <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2">
@@ -57,7 +60,7 @@ export default function ContactSection() {
       <span className="text-lg"><MapPinCheckIcon /></span>
       <h3 className="font-semibold">USA Center</h3>
     </div>
-    <p className="ml-7 underline">+1-212-464-6000</p>
+    <p className="ml-7 underline">+91 94274 98359</p>
   </div>
 
   {/* Email */}
