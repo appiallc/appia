@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
           {/* Right */}
           <div className="text-center md:text-right text-sm md:text-base space-y-1">
-            <p>sales@algoworks.com</p>
+            <p>sales@appia.in</p>
             <p>+1-212-464-6000</p>
           </div>
         </div>

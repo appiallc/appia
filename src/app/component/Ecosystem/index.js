@@ -25,7 +25,7 @@ export default function Ecosystem() {
   <section className="bg-white text-black py-16 px-6 lg:px-20 flex flex-col lg:flex-row gap-10 items-center">
       {/* Left text */}
       <div className="w-full lg:w-1/3">
-        <p className="text-gray-400 uppercase text-sm mb-2">Our Ecosystem</p>
+        <p className="text-gray-800 uppercase text-lm mb-2 text-lg  text-black">Our Ecosystem</p>
         <h2 className="text-3xl lg:text-5xl font-bold">We work with <br/> everyone.</h2>
       </div>
 

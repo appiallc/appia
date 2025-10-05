@@ -14,7 +14,7 @@ import CaseStudies from "./component/caseStudies";
 
 export default function Home() {
   return (
-    <div className="font-sans min-h-screen">
+    <div className="font-inter min-h-screen">
       <Header />
       <main className="pt-8">
         <HeroSection />

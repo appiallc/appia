@@ -22,11 +22,11 @@ export default function HeroSection() {
       {/* Headline */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
-          Engineer for business <br />
-          <span className="text-red-500">Build for people</span>
+          Innovate for business <br />
+          <span className="text-red-500"> Design for people</span>
         </h1>
         <p className="mt-6 text-base sm:text-lg md:text-xl text-black max-w-2xl mx-auto">
-          We help businesses thrive at the intersection of technology and people.
+         We connect technology and people to grow businesses.
         </p>
       </div>
 

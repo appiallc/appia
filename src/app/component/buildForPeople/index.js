@@ -95,9 +95,9 @@ export default function BuildForPeople() {
         >
           <motion.p
             variants={item}
-            className="text-sm uppercase tracking-wide text-black"
+            className="text-lg uppercase tracking-wide text-black"
           >
-            Build for people
+             Design for people
           </motion.p>
 
           <motion.h2

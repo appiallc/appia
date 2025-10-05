@@ -67,11 +67,11 @@ export default function CaseStudies() {
      <section className="w-full px-6 py-12 flex justify-center ">
       <div className="bg-white rounded-3xl max-w-6xl w-full px-6 md:px-12 py-10 text-center shadow-lg">
       {/* Tabs */}
-      <div className="flex flex-row gap-1  justify-center items-center">
+      <div className="flex lg:flex-row gap-1 flex-col justify-center items-center">
         <div>
-            <h3 className="text-xl font-bold uppercase">{"Our Work"}</h3>
+            <h3 className="text-3xl font-bold whitespace-nowrap uppercase">{"Our Work"}</h3>
         </div>
-      <div className="flex overflow-x-auto whitespace-nowrap gap-4 ml-4 no-scrollbar">
+      <div className="flex  w-full overflow-x-auto whitespace-nowrap gap-4 ml-4 no-scrollbar">
   {tabs.map((tab) => (
     <div
       key={tab.id}
@@ -98,12 +98,12 @@ export default function CaseStudies() {
         <div>
           <h3 className="text-xl font-bold uppercase">{current.subtitle}</h3>
           <h2 className="text-3xl font-bold mt-2">{current.title}</h2>
-          <p className="text-gray-300 mt-4">{current.description}</p>
+          <p className="text-black mt-4">{current.description}</p>
           <div className="mt-6">
             <span className="text-green-500 text-4xl font-bold">
               {current.highlight}
             </span>
-            <p className="text-gray-400">{current.highlightText}</p>
+            <p className="text-black">{current.highlightText}</p>
           </div>
         </div>
 

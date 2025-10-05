@@ -13,8 +13,8 @@ export default function BusinessSection() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20">
         {/* Top Small Text */}
-        <p className="text-sm uppercase tracking-widest text mb-4">
-          Engineer for business
+        <p className="text-lg uppercase tracking-widest text mb-4">
+          Innovate for business
         </p>
 
         {/* Heading */}

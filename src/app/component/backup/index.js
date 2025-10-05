@@ -186,7 +186,7 @@ export default function BuildForPeople() {
   // left column — unchanged
   const LeftColumn = () => (
     <div className="space-y-12">
-      <p className="text-sm uppercase tracking-wide text-black">Build for people</p>
+      <p className="text-lg uppercase tracking-wide text-black"> Design for people</p>
       <h2 className="text-3xl md:text-4xl font-extrabold leading-snug">
         We elevate digital success and increase ROI <br /> with a relentless focus on the human experience.
       </h2>
