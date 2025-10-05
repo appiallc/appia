@@ -40,9 +40,9 @@ export default function EverydayAISection() {
           </p>
 
           {/* Button */}
-          <button className="bg-white text-red-500 px-6 py-3 rounded-full font-semibold hover:bg-white transition">
+          {/* <button className="bg-white text-red-500 px-6 py-3 rounded-full font-semibold hover:bg-white transition">
             Learn more
-          </button>
+          </button> */}
         </div>
 
         {/* Right Image */}

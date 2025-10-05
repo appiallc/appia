@@ -7,7 +7,13 @@ import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
+ const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false); // close mobile menu after click
+    }
+  };
   return (
     <header className="bg-white   sticky top-0 z-50 text-white shadow-md  rounded-lg">
       <div className="container mx-auto flex justify-between items-center px-4 py-6">
@@ -23,68 +29,68 @@ export default function Header() {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-8 font-medium ">
-          <Link href="/" className="text-black hover:text-red-500">
-            {" "}
+        
+         <nav className="hidden md:flex space-x-8 font-medium">
+          <div onClick={() => scrollToSection("ai-solutions")} className="text-black hover:text-red-500 cursor-pointer">
             AI solutions
-          </Link>
-          <Link href="/" className="text-black hover:text-red-500">
+          </div>
+          <div onClick={() => scrollToSection("technologies")} className="text-black hover:text-red-500 cursor-pointer">
             Technologies
-          </Link>
-          <Link href="/" className="text-black hover:text-red-500">
+          </div>
+          <div onClick={() => scrollToSection("services")} className="text-black hover:text-red-500 cursor-pointer">
             Services
-          </Link>
-          <Link href="/" className="text-black hover:text-red-500">
+          </div>
+          <div onClick={() => scrollToSection("industries")} className="text-black hover:text-red-500 cursor-pointer">
             Industries
-          </Link>
-          <Link href="/" className="text-black hover:text-red-500">
+          </div>
+          <div onClick={() => scrollToSection("staffing")} className="text-black hover:text-red-500 cursor-pointer">
             Staffing & Recruitment
-          </Link>
+          </div>
         </nav>
 
-        {/* Contact Us Button */}
+        {/* Contact Us div */}
         <div className="hidden md:block">
           <Link
             href="/contact"
-            className="bg-red-500 text-white font-semibold px-5 py-2 rounded-full  transition"
+            className="bg-red-500 text-white font-semibold px-5 py-2 rounded-full  cursor-pointer transition"
           >
             Contact us
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
+        {/* Mobile Menu div */}
+        <div
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-black focus:outline-none"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-white text-black px-6 py-4 space-y-4">
-          <Link href="/" className="block hover:text-red-500">
-             AI solutions
-          </Link>
-          <Link href="/" className="block hover:text-red-500">
+          <button onClick={() => scrollToSection("ai-solutions")} className="block hover:text-red-500">
+            AI solutions
+          </button>
+          <button onClick={() => scrollToSection("technologies")} className="block hover:text-red-500">
             Technologies
-          </Link>
-          <Link href="/" className="block hover:text-red-500">
+          </button>
+          <button onClick={() => scrollToSection("services")} className="block hover:text-red-500">
             Services
-          </Link>
-          <Link href="/" className="block hover:text-red-500">
+          </button>
+          <button onClick={() => scrollToSection("industries")} className="block hover:text-red-500">
             Industries
-          </Link>
-          <Link href="/" className="block hover:text-red-500">
-           Staffing & Recruitment
-          </Link>
-          <Link
+          </button>
+          <button onClick={() => scrollToSection("staffing")} className="block hover:text-red-500">
+            Staffing & Recruitment
+          </button>
+          <a
             href="/contact"
-            className="block bg-red-500 text-white font-semibold px-5 py-2 rounded-full transition text-center"
+            className="block bg-red-500 text-white font-semibold px-5 py-2 rounded-full transition text-center cursor-pointer"
           >
             Contact us
-          </Link>
+          </a>
         </div>
       )}
     </header>

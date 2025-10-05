@@ -20,13 +20,23 @@ export default function Home() {
         <HeroSection />
         
            <BusinessSection />
+            <section id="technologies" >
          <DefineBuildRun />
+         </section>
+            
          <TechSection />
+        
          <BuildForPeople />
+          <section id="ai-solutions" >
          <EverydayAISection/>
+         </section>
+         <section id="services" >
          <Ecosystem />
+         </section>
          <CallToAction />
+          <section id="industries" >
          <CaseStudies />
+         </section>
          <Footer />
       </main>
     </div>
