@@ -104,16 +104,14 @@ export default function BuildForPeople() {
             variants={item}
             className="text-3xl md:text-4xl font-extrabold leading-snug"
           >
-            We elevate digital success and increase ROI <br />
-            with a relentless focus on the human experience.
+           Digital Experience Transformation: Build for People, Maximize ROI
           </motion.h2>
 
           <motion.p
             variants={item}
             className="text-black text-base md:text-lg"
           >
-            Our world class experience transformation playbook has enhanced
-            performance at Fortune 500 companies around the globe.
+         We elevate digital success by focusing on the human experience. Our world-class DX playbook is proven to increase user adoption, boost customer loyalty, and drive tangible returns.
           </motion.p>
 
           <motion.button

@@ -10,12 +10,12 @@ const logos = [
   { name: "wordPress", src: "/technologies/wordPress.png" },
   { name: "laravel", src: "/technologies/laravel.png" },
   { name: "shoify", src: "/technologies/shopify.png" },
-   { name: "java", src: "/technologies/java.png" },
-  { name: "drupal", src: "/technologies/drupal.png" },
+   { name: "FastApi", src: "/technologies/FastApi.png" },
+  { name: "microSoft360", src: "/technologies/microsoft360.png" },
   { name: "dotnet", src: "/technologies/dotnet.png" },
   { name: "python", src: "/technologies/python.png" },
    { name: "android", src: "/technologies/android.png" },
-  { name: "ios", src: "/technologies/ios.png" },
+  { name: "flutter", src: "/technologies/flutter.png" },
  
   { name: "React-native", src: "/technologies/react-native.png" },
 ];

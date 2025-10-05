@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function BuildForPeople() {
   const items = [
-    { id: "item-1", title: "Increased conversion", highlight: "200%", description: "Improvement in sales conversion rates for a home services company by replacing outdated paper price books with a user-friendly custom online sales tool." },
-    { id: "item-2", title: "Initial adoption", description: "Faster adoption of new tools with streamlined onboarding and user-focused design." },
-    { id: "item-3", title: "Recovered lost revenue", description: "Clients were able to recover revenue previously lost due to inefficiencies and outdated systems." },
-    { id: "item-4", title: "Boosted customer loyalty", description: "Enhancing user experiences led to higher retention and repeat customers." },
-    { id: "item-5", title: "Increased engagement", description: "Better interfaces and workflows drove higher user participation and satisfaction." },
+    { id: "item-1", title: "Increase in Sales Conversion", highlight: "200%", description: "Achieved for a home services company by replacing outdated paper processes with a highly intuitive, custom sales tool." },
+    { id: "item-2", title: "Accelerated Platform Adoption", description: "User-centric design and streamlined onboarding engineered for speed, ensuring rapid organizational uptake of new tools and dramatically shortening time-to-value for your investment." },
+    { id: "item-3", title: "Direct Revenue Recovery	", description: "We eliminate operational leaks and data silos caused by outdated systems, implementing modern platforms that directly convert previously lost revenue into realized profit." },
+    { id: "item-4", title: "Elevated Customer Loyalty & CLV", description: "By enhancing digital experiences and simplifying customer journeys, we drive higher retention rates, encourage repeat business, and significantly increase Customer Lifetime Value (CLV)." },
+    { id: "item-5", title: "Maximized User Engagement", description: "Intuitive interfaces and optimized workflows drive higher user participation and satisfaction, transforming system adoption into a powerful, sustainable competitive advantage." },
   ];
 
   const containerRef = useRef(null);
@@ -188,10 +188,10 @@ export default function BuildForPeople() {
     <div className="space-y-12">
       <p className="text-lg uppercase tracking-wide text-black"> Design for people</p>
       <h2 className="text-3xl md:text-4xl font-extrabold leading-snug">
-        We elevate digital success and increase ROI <br /> with a relentless focus on the human experience.
+Digital Experience Transformation: Build for People, Maximize ROI
       </h2>
       <p className="text-black text-base md:text-lg">
-        Our world class experience transformation playbook has enhanced performance at Fortune 500 companies around the globe.
+       We elevate digital success by focusing on the human experience. Our world-class DX playbook is proven to increase user adoption, boost customer loyalty, and drive tangible returns.
       </p>
       <button className="bg-red-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-red-600 transition">
         Get in touch

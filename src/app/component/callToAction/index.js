@@ -20,7 +20,7 @@ export default function CallToAction() {
           </div>
 
           {/* Button */}
-          <button className="bg-white text-red-500 font-semibold text-sm md:text-base px-6 py-3 rounded-full hover:bg-gray-900 transition">
+          <button className="bg-white text-red-500 font-semibold text-sm md:text-base px-6 py-3 rounded-full hover:bg-white transition">
             Let’s talk
           </button>
         </div>

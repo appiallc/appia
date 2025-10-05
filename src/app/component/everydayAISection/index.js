@@ -31,14 +31,12 @@ export default function EverydayAISection() {
 
           {/* Title */}
           <h2 className="text-3xl font-extrabold text-white mb-4">
-            Everyday AI
+            See Our Foundational AI Use Cases
           </h2>
 
           {/* Description */}
           <p className="text-base md:text-lg text-white mb-6">
-            Our Everyday AI approach starts by targeting a foundational AI use
-            case, then scales efficiently by tackling new, adjacent use cases
-            for larger AI gains in the future.
+            We started with an AI-powered customer service chatbot (Foundational Use Case) and then scaled it to automate internal operations, leading to 15% lower operational costs.
           </p>
 
           {/* Button */}
