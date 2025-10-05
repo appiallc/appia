@@ -2,6 +2,7 @@
 
 import { Mail, MapPinCheckIcon } from "lucide-react";
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -10,17 +11,33 @@ export default function ContactSection() {
     phone: "",
     message: "",
   });
+  
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    // You can add API call here
-  };
 
+    emailjs
+      .send(
+        "service_wouxcve",     // from EmailJS dashboard
+        "template_c5gsanr",    // template with placeholders
+        formData,
+        "KHfvEy4KnJNAwzuPR"      // your public key
+      )
+      .then(
+        (result) => {
+          alert("Message sent successfully!");
+          setFormData({ name: "", email: "", phone: "", message: "" });
+        },
+        (error) => {
+          alert("Failed to send message. Try again.");
+        }
+      );
+  };
   return (
     <section className="w-full bg-white text-white relative mx-4">
       <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2">
@@ -74,7 +91,7 @@ export default function ContactSection() {
               placeholder="Name*"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 rounded-md bg-white text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-md bg-white text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white"
               required
             />
             <input
@@ -83,7 +100,7 @@ export default function ContactSection() {
               placeholder="Email*"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 rounded-md bg-white text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-md bg-white text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white"
               required
             />
             <input
@@ -92,7 +109,7 @@ export default function ContactSection() {
               placeholder="Phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-3 rounded-md bg-white text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-md bg-white text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white"
             />
             <textarea
               name="message"
@@ -100,7 +117,7 @@ export default function ContactSection() {
               placeholder="Tell us what you need"
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-3 rounded-md bg-white text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-md bg-white text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-white"
             ></textarea>
             <button
               type="submit"
