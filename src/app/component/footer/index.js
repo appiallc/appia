@@ -104,7 +104,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-6 text-white text-xs md:text-sm">
         {/* Certifications */}
         <div className="flex items-center gap-4">
-          <span className="font-bold text-white">ISO27001</span> CERTIFIED
+           CERTIFIED
           <span className="bg-green-600 text-white px-2 py-1 text-xs rounded">
             AWS
           </span>
@@ -114,8 +114,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <p>© Copyright 2025. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#">Privacy policy</a>
-            <a href="#">Terms of service</a>
+            <a href="/privacy-policy">Privacy policy</a>
+            <a href="/termsandcondition">Terms of service</a>
           </div>
         </div>
       </div>
