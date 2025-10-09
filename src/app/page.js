@@ -10,7 +10,7 @@ import Ecosystem from "./component/Ecosystem";
 import CallToAction from "./component/callToAction";
 import Footer from "./component/footer";
 import CaseStudies from "./component/caseStudies";
-
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -39,6 +39,14 @@ export default function Home() {
          </section>
          <Footer />
       </main>
+      <a
+        href="https://wa.me/916352217192" // replace with your number
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center z-50"
+      >
+        <FaWhatsapp size={24} />
+      </a>
     </div>
   );
 }

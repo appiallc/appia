@@ -4,16 +4,46 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
- const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false); // close mobile menu after click
+  const router = useRouter();
+  const pathname = usePathname(); // current URL path
+
+  const isActive = pathname === "/staffing-recruitment";
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    // Default offset for header height
+    let yOffset = -60;
+
+    // Adjust offset for specific sections
+    switch (id) {
+      case "technologies":
+        yOffset = 80;
+        break;
+      case "ai-solutions":
+        yOffset = 140;
+        break;
+      case "services":
+        yOffset = 60;
+        break;
+      case "industries":
+        yOffset = -60;
+        break;
+      default:
+        yOffset = -60;
     }
-  };
+
+    const y =
+      section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+};
+
   return (
     <header className="bg-white   sticky top-0 z-50 text-white shadow-md  rounded-lg">
       <div className="container mx-auto flex justify-between items-center px-4 py-6">
@@ -24,7 +54,10 @@ export default function Header() {
             alt="APPIA"
             height={80}
             width={80}
-            className="h-8 w-auto"
+            className="h-8 w-auto cursor-pointer"
+            onClick={() => {
+              router.push("/");
+              window.scrollTo({ top: 0, behavior: "smooth" })}}
           />
         </div>
 
@@ -43,7 +76,9 @@ export default function Header() {
           <div onClick={() => scrollToSection("industries")} className="text-black hover:text-red-500 cursor-pointer">
             Industries
           </div>
-          <div onClick={() => scrollToSection("staffing")} className="text-black hover:text-red-500 cursor-pointer">
+          <div onClick={() => router.push("/staffing-recruitment")}  className={`cursor-pointer ${
+        isActive ? "text-red-500 font-bold" : "text-black hover:text-red-500"
+      }`}>
             Staffing & Recruitment
           </div>
         </nav>
