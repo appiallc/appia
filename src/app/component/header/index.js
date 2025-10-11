@@ -6,43 +6,42 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
-
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname(); // current URL path
 
   const isActive = pathname === "/staffing-recruitment";
-const scrollToSection = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    // Default offset for header height
-    let yOffset = -60;
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      // Default offset for header height
+      let yOffset = -60;
 
-    // Adjust offset for specific sections
-    switch (id) {
-      case "technologies":
-        yOffset = 80;
-        break;
-      case "ai-solutions":
-        yOffset = 140;
-        break;
-      case "services":
-        yOffset = 60;
-        break;
-      case "industries":
-        yOffset = -60;
-        break;
-      default:
-        yOffset = -60;
+      // Adjust offset for specific sections
+      switch (id) {
+        case "technologies":
+          yOffset = 80;
+          break;
+        case "ai-solutions":
+          yOffset = 140;
+          break;
+        case "services":
+          yOffset = 60;
+          break;
+        case "industries":
+          yOffset = -60;
+          break;
+        default:
+          yOffset = -60;
+      }
+
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
-
-    const y =
-      section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
-};
+  };
 
   return (
     <header className="bg-white   sticky top-0 z-50 text-white shadow-md  rounded-lg">
@@ -57,28 +56,46 @@ const scrollToSection = (id) => {
             className="h-8 w-auto cursor-pointer"
             onClick={() => {
               router.push("/");
-              window.scrollTo({ top: 0, behavior: "smooth" })}}
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
           />
         </div>
 
         {/* Desktop Menu */}
-        
-         <nav className="hidden md:flex space-x-8 font-medium">
-          <div onClick={() => scrollToSection("ai-solutions")} className="text-black hover:text-red-500 cursor-pointer">
+
+        <nav className="hidden md:flex space-x-8 font-medium">
+          <div
+            onClick={() => scrollToSection("ai-solutions")}
+            className="text-black hover:text-red-500 cursor-pointer"
+          >
             AI solutions
           </div>
-          <div onClick={() => scrollToSection("technologies")} className="text-black hover:text-red-500 cursor-pointer">
+          <div
+            onClick={() => scrollToSection("technologies")}
+            className="text-black hover:text-red-500 cursor-pointer"
+          >
             Technologies
           </div>
-          <div onClick={() => scrollToSection("services")} className="text-black hover:text-red-500 cursor-pointer">
+          <div
+            onClick={() => scrollToSection("services")}
+            className="text-black hover:text-red-500 cursor-pointer"
+          >
             Services
           </div>
-          <div onClick={() => scrollToSection("industries")} className="text-black hover:text-red-500 cursor-pointer">
+          <div
+            onClick={() => scrollToSection("industries")}
+            className="text-black hover:text-red-500 cursor-pointer"
+          >
             Industries
           </div>
-          <div onClick={() => router.push("/staffing-recruitment")}  className={`cursor-pointer ${
-        isActive ? "text-red-500 font-bold" : "text-black hover:text-red-500"
-      }`}>
+          <div
+            onClick={() => router.push("/staffing-recruitment")}
+            className={`cursor-pointer ${
+              isActive
+                ? "text-red-500 font-bold"
+                : "text-black hover:text-red-500"
+            }`}
+          >
             Staffing & Recruitment
           </div>
         </nav>
@@ -105,19 +122,49 @@ const scrollToSection = (id) => {
       {/* Mobile Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-white text-black px-6 py-4 space-y-4">
-          <button onClick={() => scrollToSection("ai-solutions")} className="block hover:text-red-500">
+          <button
+            onClick={() => {
+              scrollToSection("ai-solutions");
+              setIsOpen(!isOpen);
+            }}
+            className="block hover:text-red-500"
+          >
             AI solutions
           </button>
-          <button onClick={() => scrollToSection("technologies")} className="block hover:text-red-500">
+          <button
+            onClick={() => {
+              scrollToSection("technologies");
+              setIsOpen(!isOpen);
+            }}
+            className="block hover:text-red-500"
+          >
             Technologies
           </button>
-          <button onClick={() => scrollToSection("services")} className="block hover:text-red-500">
+          <button
+            onClick={() => {
+              scrollToSection("services");
+              setIsOpen(!isOpen);
+            }}
+            className="block hover:text-red-500"
+          >
             Services
           </button>
-          <button onClick={() => scrollToSection("industries")} className="block hover:text-red-500">
+          <button
+            onClick={() => {
+              scrollToSection("industries");
+              setIsOpen(!isOpen);
+            }}
+            className="block hover:text-red-500"
+          >
             Industries
           </button>
-          <button onClick={() => scrollToSection("staffing")} className="block hover:text-red-500">
+          <button
+            onClick={() => {
+              scrollToSection("staffing");
+              setIsOpen(!isOpen);
+            }}
+            className="block hover:text-red-500"
+          >
             Staffing & Recruitment
           </button>
           <a
