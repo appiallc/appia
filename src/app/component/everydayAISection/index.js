@@ -31,12 +31,12 @@ export default function EverydayAISection() {
 
           {/* Title */}
           <h2 className="text-3xl font-extrabold text-white mb-4">
-            See Our Foundational AI Use Cases
+            Meet Our Experienced Development Team
           </h2>
 
           {/* Description */}
           <p className="text-base md:text-lg text-white mb-6">
-            We started with an AI-powered customer service chatbot (Foundational Use Case) and then scaled it to automate internal operations, leading to 15% lower operational costs.
+            Our strength is in our people. The team comprises developers with a **broad range of experience**, from **5 to 15 years** in the industry, ensuring we approach every challenge with both fresh innovation and seasoned expertise.
           </p>
 
           {/* Button */}
