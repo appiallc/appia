@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 
 export default function EverydayAISection() {
      const testimonials = [
-    "This is the way it should have always been – simple, efficient, and effective.",
-    "Our experience has been transformative. Productivity has gone up significantly.",
-    "We were able to recover lost revenue and build stronger customer loyalty.",
+    "Our team is saving hours every week and can now focus on what really matters.",
+    "Within the first month, we saw a 15% increase in conversions. This product pays for itself.",
+    "The onboarding was seamless, and the impact was immediate. We couldn't be happier with the support.",
   ];
   
   const [index, setIndex] = useState(0);
