@@ -8,7 +8,7 @@ const technologies = [
   "Web",
   "DevOps",
   "Odoo ERP",
-  "AI and Analytics",
+  "AI",
 ];
 
 export default function TechSection() {
