@@ -30,6 +30,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.dropdown {
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
 /* vertical marquee: move upward by 50% (the duplicated copy height) */
 @keyframes vertical-marquee {
   0%   { transform: translateY(0); }

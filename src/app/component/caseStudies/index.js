@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const tabs = [
   { id: "transportation", label: "Transportation" },
@@ -59,10 +59,25 @@ const content = {
   },
 };
 
-export default function CaseStudies() {
+
+export default function CaseStudies({activeTab}) {
   const [active, setActive] = useState("transportation");
   const current = content[active];
 
+
+  // Update active tab when prop changes
+  useEffect(() => {
+    if (activeTab) {
+      setActive(activeTab);
+    }
+  }, [activeTab]);
+  useEffect(() => {
+  const handleTabChange = (e) => {
+    setActive(e.detail);
+  };
+  window.addEventListener("selectIndustryTab", handleTabChange);
+  return () => window.removeEventListener("selectIndustryTab", handleTabChange);
+}, []);
   return (
      <section className="w-full px-6 py-12 flex justify-center ">
       <div className="bg-white rounded-3xl max-w-6xl w-full px-6 md:px-12 py-10 text-center shadow-lg">
@@ -96,14 +111,14 @@ export default function CaseStudies() {
       <div className="grid grid-cols-1 lg:grid-cols-2  gap-10 mt-10">
         {/* Left Side */}
         <div className="space-y-2 text-left">
-          <h3 className="text-4xl font-bold uppercase">{current.subtitle}</h3>
-          <h2 className="text-3xl font-bold mt-2">{current.title}</h2>
-          <p className="text-black text-md mt-4">{current.description}</p>
+          <h3 className="text-4xl font-bold uppercase">{current?.subtitle}</h3>
+          <h2 className="text-3xl font-bold mt-2">{current?.title}</h2>
+          <p className="text-black text-md mt-4">{current?.description}</p>
           <div className="mt-6">
             <span className="text-green-500 text-4xl font-bold">
-              {current.highlight}
+              {current?.highlight}
             </span>
-            <p className="text-black  text-md">{current.highlightText}</p>
+            <p className="text-black  text-md">{current?.highlightText}</p>
           </div>
         </div>
 
@@ -116,8 +131,8 @@ export default function CaseStudies() {
 
   {/* Foreground image */}
   <Image
-    src={current.image}
-    alt={current.title}
+    src={current?.image}
+    alt={current?.title}
     height={150}
     width={200}
     className="rounded-xl shadow-lg w-full object-cover h-80"
