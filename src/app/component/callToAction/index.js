@@ -1,6 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function CallToAction() {
+   const router = useRouter();
   return (
     <section className="relative w-full bg-white overflow-hidden">
       {/* Background diagonal stripes */}
@@ -20,7 +23,9 @@ export default function CallToAction() {
           </div>
 
           {/* Button */}
-          <button className="bg-white text-red-500 font-semibold text-sm md:text-base px-6 py-3 rounded-full hover:bg-white transition">
+          <button className="bg-white text-red-500 font-semibold text-sm md:text-base px-6 py-3 rounded-full hover:bg-white transition"
+          onClick={() => router.push("/contact")}
+          >
             Let’s talk
           </button>
         </div>
