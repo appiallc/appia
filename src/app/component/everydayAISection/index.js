@@ -25,9 +25,9 @@ export default function EverydayAISection() {
         {/* Left Content */}
         <div className="bg-red-500 rounded-3xl p-8 md:p-12 flex flex-col items-center md:items-start text-center md:text-left h-full">
           {/* Icon */}
-          <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-red-500 mb-6">
-            <span className="text-2xl font-bold">A</span>
-          </div>
+          // <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-red-500 mb-6">
+          //   <span className="text-2xl font-bold">A</span>
+          // </div>
 
           {/* Title */}
           <h2 className="text-3xl font-extrabold text-white mb-4">
