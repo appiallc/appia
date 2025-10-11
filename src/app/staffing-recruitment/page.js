@@ -198,6 +198,7 @@ export default function StaffingRecruitment() {
             src="/staffing-process.jpg"
             height={100}
             width={100}
+            alt="staff"
             className="h-45 w-full block lg:hidden object-contain"
           />
         </section>

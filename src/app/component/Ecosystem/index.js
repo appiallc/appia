@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const logos = [
   { name: "html", src: "/technologies/Html.png" },
   { name: "Reactjs", src: "/technologies/Reactjs.png" },
@@ -37,7 +39,7 @@ export default function Ecosystem() {
           <div className="flex-shrink-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 pb-6">
             {logos.map((l, i) => (
               <div key={`a-${i}`} className="bg-white rounded-lg h-28 shadow-md flex items-center justify-center">
-                <img src={l.src} alt={l.name} className="h-20 object-contain" />
+                <Image src={l.src} alt={l.name} height={100} width={100}  className="h-20 object-contain" />
               </div>
             ))}
           </div>
@@ -46,7 +48,7 @@ export default function Ecosystem() {
           <div className="flex-shrink-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 pb-6">
             {logos.map((l, i) => (
               <div key={`b-${i}`} className="bg-white rounded-lg  shadow-md h-28 flex items-center justify-center">
-                <img src={l.src} alt={l.name} className="h-20 object-contain" />
+                <Image src={l.src} alt={l.name} height={100} width={100}  className="h-20 object-contain" />
               </div>
             ))}
           </div>
