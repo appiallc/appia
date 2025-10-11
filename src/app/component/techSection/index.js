@@ -3,12 +3,12 @@
 import React from "react";
 
 const technologies = [
-  "Salesforce",
+  "Dynamics 365 CRM",
   "Mobile",
   "Web",
   "DevOps",
-  "Cloud",
-  "AI and analytics",
+  "Odoo ERP",
+  "AI and Analytics",
 ];
 
 export default function TechSection() {
