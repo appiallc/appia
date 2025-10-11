@@ -47,7 +47,9 @@ export default function Footer() {
           </div>
           {/* Right */}
           <div className="text-center md:text-right text-sm md:text-base space-y-1">
-            <p>sales@appia.in</p>
+            <a href="mailto:sales@appia.in"  target="_blank"
+            className="text-black underline-none text-lg"
+            >sales@appia.in</a>
             <p>+91 94274 98359</p>
           </div>
         </div>
@@ -82,11 +84,12 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div className="flex items-center gap-4 text-white text-xl">
-          <a href="https://x.com/appiallc?s=11" className="">
+          <a href="https://x.com/appiallc?s=11" className="" target="_blank">
             <FaXTwitter />
           </a>
           <a
-            href="https://www.linkedin.com/company/appia-consultancy-services-llc/"
+            href="https://www.linkedin.com/company/appia-consultancy-services-llc/" 
+            target="_blank"
             className=""
           >
             <FaLinkedin />
@@ -94,6 +97,7 @@ export default function Footer() {
           <a
             href="https://www.instagram.com/appia_cs?igsh=MXRpOGp2Y2JicWs2eg%3D%3D&utm_source=qr"
             className=""
+            target="_blank"
           >
             <FaInstagram />
           </a>

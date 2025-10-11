@@ -69,7 +69,9 @@ export default function ContactSection() {
       <span className="text-lg"><Mail /></span>
       <h3 className="font-semibold">Email Us</h3>
     </div>
-    <p className="ml-7 underline">sales@appia.in</p>
+    <a className="ml-7 underline text-black underline-none text-lg" 
+     target="_blank"
+     href="mailto:sales@appia.in">sales@appia.in</a>
   </div>
 
   {/* India Center */}
