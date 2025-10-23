@@ -1,35 +1,35 @@
 // components/Header.js
-"use client";
-import { useState } from "react";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+'use client';
+import {useState} from 'react';
+import Link from 'next/link';
+import {Menu, X} from 'lucide-react';
+import Image from 'next/image';
+import {usePathname, useRouter} from 'next/navigation';
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Header () {
+  const [isOpen, setIsOpen] = useState (false);
   const router = useRouter();
-  const pathname = usePathname(); // current URL path
-const [showIndustries, setShowIndustries] = useState(false);
-  const isActive = pathname === "/staffing-recruitment";
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
+  const pathname = usePathname (); // current URL path
+
+  const isActive = pathname === '/staffing-recruitment';
+  const scrollToSection = id => {
+    const section = document.getElementById (id);
     if (section) {
       // Default offset for header height
       let yOffset = -60;
 
       // Adjust offset for specific sections
       switch (id) {
-        case "technologies":
+        case 'technologies':
           yOffset = 80;
           break;
-        case "ai-solutions":
+        case 'ai-solutions':
           yOffset = 140;
           break;
-        case "services":
+        case 'services':
           yOffset = 60;
           break;
-        case "industries":
+        case 'industries':
           yOffset = -60;
           break;
         default:
@@ -37,9 +37,9 @@ const [showIndustries, setShowIndustries] = useState(false);
       }
 
       const y =
-        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        section.getBoundingClientRect ().top + window.pageYOffset + yOffset;
 
-      window.scrollTo({ top: y, behavior: "smooth" });
+      window.scrollTo ({top: y, behavior: 'smooth'});
     }
   };
 
@@ -55,124 +55,57 @@ const [showIndustries, setShowIndustries] = useState(false);
             width={80}
             className="h-8 w-auto cursor-pointer"
             onClick={() => {
-              router.push("/");
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              router.push ('/');
+              window.scrollTo ({top: 0, behavior: 'smooth'});
             }}
           />
         </div>
 
         {/* Desktop Menu */}
 
-        <nav className="hidden md:flex space-x-8 font-medium">
+        <nav className="hidden lg:flex space-x-8 font-medium">
           <div
-            onClick={() => scrollToSection("ai-solutions")}
+            onClick={() => scrollToSection ('ai-solutions')}
             className="text-black hover:text-red-500 cursor-pointer"
           >
             AI solutions
           </div>
           <div
-            onClick={() => scrollToSection("technologies")}
-            className="text-black hover:text-red-500 cursor-pointer"
+            onClick={() => router.push ('/technologies')}
+           className={`cursor-pointer ${pathname === "/technologies" ? 'text-red-500 font-bold' : 'text-black hover:text-red-500'}`}
           >
             Technologies
           </div>
           <div
-            onClick={() => scrollToSection("services")}
+            onClick={() => scrollToSection ('services')}
             className="text-black hover:text-red-500 cursor-pointer"
           >
             Services
           </div>
-          {/* <div
-            onClick={() => scrollToSection("industries")}
-            className="text-black hover:text-red-500 cursor-pointer"
-          >
-            Industries
-          </div> */}
+
           <div className="relative group cursor-pointer">
             {/* Main menu item */}
-            <div className="text-black group-hover:text-red-500">
+            <div
+             className={`cursor-pointer ${pathname === "/industry" ? 'text-red-500 font-bold' : 'text-black hover:text-red-500'}`}
+              onClick={() => router.push ('/industry')}
+            >
               Industries
             </div>
 
             {/* Dropdown menu */}
-            <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div
-                onClick={() => {
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", { detail: "health" })
-                  );
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Healthcare
-              </div>
-              <div
-                onClick={() => {
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", { detail: "finance" })
-                  );
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Finance
-              </div>
 
-              <div
-                onClick={() => {
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", {
-                      detail: "transportation",
-                    })
-                  );
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Transportation
-              </div>
-              <div
-                onClick={() => {
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", { detail: "media" })
-                  );
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Technology
-              </div>
-              <div
-                onClick={() => {
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", {
-                      detail: "manufacturing",
-                    })
-                  );
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Manufacturing
-              </div>
-            </div>
           </div>
 
           <div
-            onClick={() => router.push("/staffing-recruitment")}
-            className={`cursor-pointer ${
-              isActive
-                ? "text-red-500 font-bold"
-                : "text-black hover:text-red-500"
-            }`}
+            onClick={() => router.push ('/staffing-recruitment')}
+            className={`cursor-pointer ${isActive ? 'text-red-500 font-bold' : 'text-black hover:text-red-500'}`}
           >
             Staffing & Recruitment
           </div>
         </nav>
 
         {/* Contact Us div */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Link
             href="/contact"
             className="bg-red-500 text-white font-semibold px-5 py-2 rounded-full  cursor-pointer transition"
@@ -183,151 +116,78 @@ const [showIndustries, setShowIndustries] = useState(false);
 
         {/* Mobile Menu div */}
         <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-black focus:outline-none"
+          onClick={() => setIsOpen (!isOpen)}
+          className="lg:hidden text-black focus:outline-none"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </div>
       </div>
 
       {/* Mobile Dropdown */}
-     {isOpen && (
-  <div className="md:hidden bg-white text-black px-6 py-4 space-y-4">
-    <button
-      onClick={() => {
-        scrollToSection("ai-solutions");
-        setIsOpen(false);
-      }}
-      className="block hover:text-red-500"
-    >
-      AI solutions
-    </button>
+      {isOpen &&
+        <div className="lg:hidden bg-white text-black px-6 py-4 space-y-4">
+          <button
+            onClick={() => {
+              scrollToSection ('ai-solutions');
+              setIsOpen (false);
+            }}
+            className="block hover:text-red-500"
+          >
+            AI solutions
+          </button>
 
-    <button
-      onClick={() => {
-        scrollToSection("technologies");
-        setIsOpen(false);
-      }}
-      className="block hover:text-red-500"
-    >
-      Technologies
-    </button>
+          <button
+            onClick={() => {
+              router.push ('/technologies');
+              setIsOpen (false);
+            }}
+            className="block hover:text-red-500"
+          >
+            Technologies
+          </button>
 
-    <button
-      onClick={() => {
-        scrollToSection("services");
-        setIsOpen(false);
-      }}
-      className="block hover:text-red-500"
-    >
-      Services
-    </button>
+          <button
+            onClick={() => {
+              scrollToSection ('services');
+              setIsOpen (false);
+            }}
+            className="block hover:text-red-500"
+          >
+            Services
+          </button>
 
-    {/* Industries dropdown */}
-    <div className="space-y-2">
-      <button
-        onClick={() => setShowIndustries((prev) => !prev)}
-        className="w-full flex justify-between items-center hover:text-red-500"
-      >
-        Industries
-        <span>{showIndustries ? "▲" : "▼"}</span>
-      </button>
+          {/* Industries dropdown */}
+          <div className="space-y-2">
+            <button
+              onClick={() => {
+                router.push ('/industry');
+                setIsOpen (false);
+              }}
+              className="w-full flex justify-between items-center hover:text-red-500"
+            >
+              Industries
 
-      {showIndustries && (
-        <>
-        <div
-                onClick={() => {
-                     setIsOpen(false);
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", { detail: "health" })
-                  );
-               
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Healthcare
-              </div>
-              <div
-                onClick={() => {
-                    setIsOpen(false);
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", { detail: "finance" })
-                  );
-                
-                }}
-                
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Finance
-              </div>
+            </button>
 
-              <div
-                onClick={() => {
-                    setIsOpen(false);
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", {
-                      detail: "transportation",
-                    })
-                  );
-                  
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Transportation
-              </div>
-              <div
-                onClick={() => {
-                    setIsOpen(false);
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", { detail: "media" })
-                  );
-                
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Technology
-              </div>
-              <div
-                onClick={() => {
-                    setIsOpen(false);
-                  scrollToSection("industries");
-                  window.dispatchEvent(
-                    new CustomEvent("selectIndustryTab", {
-                      detail: "manufacturing",
-                    })
-                  );
-                
-                }}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                Manufacturing
-              </div>
-              </>
-      )}
-    </div>
+          </div>
 
-    <button
-      onClick={() => {
-        scrollToSection("staffing");
-        setIsOpen(false);
-      }}
-      className="block hover:text-red-500"
-    >
-      Staffing & Recruitment
-    </button>
+          <button
+            onClick={() => {
+              router.push ('/staffing-recruitment');
+              setIsOpen (false);
+            }}
+            className="block hover:text-red-500"
+          >
+            Staffing & Recruitment
+          </button>;
 
-    <a
-      href="/contact"
-      className="block bg-red-500 text-white font-semibold px-5 py-2 rounded-full transition text-center cursor-pointer"
-    >
-      Contact us
-    </a>
-  </div>
-)}
+          <a
+            href="/contact"
+            className="block bg-red-500 text-white font-semibold px-5 py-2 rounded-full transition text-center cursor-pointer"
+          >
+            Contact us
+          </a>
+        </div>}
 
     </header>
   );

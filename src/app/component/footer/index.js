@@ -1,10 +1,12 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { FaXTwitter, FaLinkedin, FaYoutube, FaInstagram } from "react-icons/fa6";
 
 export default function Footer() {
   const scrollToSection = (id) => {
   const section = document.getElementById(id);
+
   if (section) {
     // Default offset for header height
     let yOffset = -60;
@@ -33,10 +35,12 @@ export default function Footer() {
     window.scrollTo({ top: y, behavior: "smooth" });
   }
 };
-  return (
+const router = useRouter();
+
+return (
     <footer className="bg-red-500 text-white relative overflow-hidden">
       {/* Contact Box */}
-      <div className="max-w-6xl mx-auto px-4 pt-12">
+      <div className="lg:max-w-7xl mx-auto px-4 lg:px-0 pt-12">
         <div
           className="bg-white rounded-2xl shadow-md text-black
         p-6 md:p-10 flex flex-col md:flex-row items-center md:justify-between gap-6"
@@ -56,7 +60,7 @@ export default function Footer() {
       </div>
 
       {/* Middle Links + Socials */}
-      <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white">
+      <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white">
         {/* Nav Links */}
         <div className="flex flex-wrap justify-center md:justify-start gap-6  text-sm md:text-base">
           <a
@@ -64,7 +68,7 @@ export default function Footer() {
             className="text-white cursor-pointer"
             onClick={(e) => {
               e.preventDefault(); // prevent page jump
-              scrollToSection("industries");
+               router.push ('/industry');
             }}
           >
             Industries
@@ -105,7 +109,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-6 text-white text-xs md:text-sm">
+      <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-6 text-white text-xs md:text-sm">
         {/* Certifications */}
         <div className="flex items-center gap-4">
            CERTIFIED

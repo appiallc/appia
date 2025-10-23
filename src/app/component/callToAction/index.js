@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-export default function CallToAction() {
+export default function CallToAction({title ,description}) {
    const router = useRouter();
   return (
     <section className="relative w-full bg-white overflow-hidden">
@@ -11,14 +11,14 @@ export default function CallToAction() {
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center py-16 px-4">
-        <div className="bg-red-500 rounded-2xl px-6 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center md:justify-between gap-6 w-full max-w-5xl">
+        <div className="bg-red-500 rounded-2xl px-6 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center md:justify-between gap-6 w-full max-w-7xl">
           {/* Text Section */}
           <div className="text-center md:text-left">
             <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-2">
-              Technology that works for people.
+             { title || ""}
             </h2>
             <p className="text-white/90 text-sm md:text-base">
-              Challenge us to turn your problems into opportunities.
+             { description || ""}
             </p>
           </div>
 

@@ -80,7 +80,7 @@ export default function CaseStudies({activeTab}) {
 }, []);
   return (
      <section className="w-full px-6 py-12 flex justify-center ">
-      <div className="bg-white rounded-3xl max-w-6xl w-full px-6 md:px-12 py-10 text-center shadow-lg">
+      <div className="bg-white rounded-3xl max-w-7xl w-full px-6 md:px-12 py-10 text-center shadow-lg">
       {/* Tabs */}
       <div className="flex lg:flex-row gap-1 flex-col justify-center items-center">
         <div>
