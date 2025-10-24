@@ -43,51 +43,49 @@ export default function ContactSection() {
 
   return (
     <section className="w-full bg-white text-white relative mx-4">
-      <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2">
+      <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2 lg:my-16">
         
         {/* Left Side */}
-        <div className="bg-white p-8 md:p-12 flex flex-col justify-center text-black">
+        <div className="bg-white p-8 lg:p-32 flex flex-col justify-center text-black">
           <p className="uppercase text-sm tracking-wider mb-3">Contact Us</p>
           <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-8">
             Challenge us to make your business thrive at the intersection of
             technology and people.
           </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
   {/* USA Center */}
   <div>
-    <div className="flex items-center gap-2 text-green-400">
+    <div className="flex items-center gap-2 text-red-500">
       <span className="text-lg"><MapPinCheckIcon /></span>
-      <h3 className="font-semibold">USA Center</h3>
     </div>
-    <p className="ml-7 underline">+91 94274 98359</p>
+       <h3 className="font-semibold">USA Center</h3>
+    <p className="underline">+91 94274 98359</p>
   </div>
 
   {/* Email */}
   <div>
-    <div className="flex items-center gap-2 text-green-400">
-      <span className="text-lg"><Mail /></span>
-      <h3 className="font-semibold">Email Us</h3>
+    <div className="flex items-center gap-2 text-red-500">
+      <span className="text-lg"><Mail /></span> 
     </div>
-    <a className="ml-7 underline text-black underline-none text-lg" 
+     <h3 className="font-semibold">Email Us</h3>
+    <a className=" underline text-black underline-none text-lg" 
      target="_blank"
      href="mailto:sales@appia.in">sales@appia.in</a>
   </div>
 
   {/* India Center */}
   <div>
-    <div className="flex items-center gap-2 text-green-400">
-      <span className="text-lg"><MapPinCheckIcon /></span>
-      <h3 className="font-semibold">India Center</h3>
-    </div>
-    <p className="ml-7 underline">+91-120-413-8727</p>
+   
+       <h3 className="font-semibold">India Center</h3>
+    <p className=" underline">+91-120-413-8727</p>
   </div>
 </div>
 
         </div>
 
         {/* Right Side (Form) */}
-        <div className="bg-red-500 p-8 md:p-12 rounded-t-3xl lg:rounded-lg my-8 overflow-x-hidden mr-8">
+        <div className="bg-red-500 p-8 md:p-12 md:mr-25 mr-8 lg:w-[70%] md:w-[95%] w-[91%] rounded-t-3xl lg:rounded-lg my-8 overflow-x-hidden ">
           <h3 className="text-xl font-semibold mb-6">How can we help?</h3>
           <form onSubmit={handleSubmit} className="space-y-5">
             <input
