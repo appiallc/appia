@@ -18,7 +18,7 @@ export default function BusinessSection() {
         </p>
 
         {/* Heading */}
-        <h1 className="text-3xl md:text-5xl font-bold leading-snug max-w-4xl">
+        <h1 className="text-3xl md:text-5xl font-bold  max-w-5xl">
           We provide engineering services with a persistent drive toward
           achieving business objectives and delivering value.
         </h1>

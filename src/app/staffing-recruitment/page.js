@@ -191,18 +191,18 @@ export default function StaffingRecruitment() {
 
           {/* Steps */}
           <div
-            className="relative bg-cover bg-center bg-no-repeat text-white h-90 py-28 mx-8 my-4 md:py-36 lg:block hidden"
-            style={{ backgroundImage: "url('/staffing-process.jpg')" }}
+            className="relative bg-cover bg-center bg-no-repeat text-white h-108 py-28 mx-8 my-8 md:py-36 lg:block hidden"
+            style={{ backgroundImage: "url('/staffing-process.png')" }}
           ></div>
           <Image
-            src="/staffing-process.jpg"
+            src="/staffing-process.png"
             height={100}
             width={100}
             alt="staff"
             className="h-45 w-full block lg:hidden object-contain"
           />
         </section>
-        <section className="py-16 bg-white text-center overflow-hidden">
+        <section className="py-8 bg-white text-center overflow-hidden">
           {/* Heading */}
           <div className="max-w-3xl mx-auto px-4 mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
