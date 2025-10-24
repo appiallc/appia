@@ -179,7 +179,7 @@ export default function Header () {
             className="block hover:text-red-500"
           >
             Staffing & Recruitment
-          </button>;
+          </button>
 
           <a
             href="/contact"
